@@ -1,0 +1,240 @@
+body {
+    overflow-x: hidden;
+}
+
+.main {
+    min-height: 100vh;
+    background-image: url("../assets/img/backDesktop.jpg");
+    background-size: cover;
+    display: flex;
+    position: relative;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    .header {
+        position: absolute;
+        top: 0;
+        height: 100px;
+        width: 100%;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: space-between;
+        .logo {
+            max-width: 250px;
+            margin-left: 2rem;
+        }
+        .texto {
+            display: flex;
+            margin-right: 2rem;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            h2 {
+                color: white;
+                margin-right: 1rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: bold;
+                font-size: 1.5rem;
+            }
+        }
+        .iconSocial {
+            width: 40px;
+            margin-right: 1rem;
+            border-radius: 5px;
+        }
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        h1 {
+            text-transform: uppercase;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .progreso {
+            display: flex;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            span {
+                color: white;
+                margin-right: 1rem;
+                margin-left: 1rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: bold;
+                font-size: 1.5rem;
+            }
+            progress {
+                width: 250px;
+            }
+            .html5::-webkit-progress-value {
+                background-image: -webkit-linear-gradient( 135deg, transparent, transparent 33%, rgba(220, 43, 96, 1) 33%, rgba(220, 43, 96, 1) 66%, transparent 66%), -webkit-linear-gradient( top, rgba(220, 43, 96, 0.57), rgba(220, 43, 96, 0.57)), -webkit-linear-gradient( left, rgba(220, 43, 96, 0.57), rgba(220, 43, 96, 1));
+            }
+            progress[value] {
+                appearance: none;
+                border: none;
+                height: 20px;
+                background-color: whiteSmoke;
+                border-radius: 3px;
+                box-shadow: 0 2px 3px rgba(0, 0, 0, .5) inset;
+                color: royalblue;
+                position: relative;
+            }
+            progress[value]::-webkit-progress-bar {
+                background-color: whiteSmoke;
+                border-radius: 3px;
+                box-shadow: 0 2px 3px rgba(0, 0, 0, .5) inset;
+            }
+            progress[value]::-webkit-progress-value {
+                position: relative;
+                background-size: 35px 20px, 100% 100%, 100% 100%;
+                border-radius: 3px;
+                /* Let's animate this */
+                animation: animate-stripes 5s linear infinite;
+            }
+            @keyframes animate-stripes {
+                100% {
+                    background-position: -100px 0;
+                }
+            }
+            /* Let's spice up things little bit by using pseudo elements. */
+            progress[value]::-webkit-progress-value:after {
+                /* Only webkit/blink browsers understand pseudo elements on pseudo classes. A rare phenomenon! */
+                content: '';
+                position: absolute;
+                width: 5px;
+                height: 5px;
+                top: 7px;
+                right: 7px;
+                background-color: white;
+                border-radius: 100%;
+            }
+            /* Firefox provides a single pseudo class to style the progress element value and not for container. -moz-progress-bar */
+            progress[value]::-moz-progress-bar {
+                /* Gradient background with Stripes */
+                background-image: -moz-linear-gradient( 135deg, transparent, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0, 0, 0, .1) 66%, transparent 66%), -moz-linear-gradient( top, rgba(255, 255, 255, .25), rgba(0, 0, 0, .2)), -moz-linear-gradient( left, #09c, #f44);
+                background-size: 35px 20px, 100% 100%, 100% 100%;
+                border-radius: 3px;
+                /* Firefox doesn't support CSS3 keyframe animations on progress element. Hence, we did not include animate-stripes in this code block */
+            }
+            /* Fallback technique styles */
+            .progress-bar {
+                background-color: whiteSmoke;
+                border-radius: 3px;
+                box-shadow: 0 2px 3px rgba(0, 0, 0, .5) inset;
+                /* Dimensions should be similar to the parent progress element. */
+                width: 100%;
+                height: 20px;
+            }
+            .progress-bar span {
+                background-color: royalblue;
+                border-radius: 3px;
+                display: block;
+                text-indent: -9999px;
+            }
+            p[data-value] {
+                position: relative;
+            }
+            /* The percentage will automatically fall in place as soon as we make the width fluid. Now making widths fluid. */
+            p[data-value]:after {
+                content: attr(data-value) '%';
+                position: absolute;
+                right: 0;
+            }
+        }
+    }
+    .footer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1rem;
+        a {
+            text-decoration: none;
+        }
+        h2 {
+            span {
+                color: #dc2b60;
+            }
+            color: white;
+            margin-right: 1rem;
+            margin-left: 1rem;
+            font-family: 'Montserrat',
+            sans-serif;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media (min-width: 0px) and (max-width: 767px) {
+    .main {
+        background-image: url("../assets/img/wallpaper-mobile.jpg");
+    }
+    .main .header .logo {
+        width: 200px;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .main .header .iconSocial {
+        width: 25px;
+    }
+    .main .header .texto h2 {
+        display: none;
+    }
+    .main .content h1 {
+        font-size: 1rem;
+    }
+    .main .content .progreso {
+        flex-direction: column;
+    }
+    .main .content .progreso span {
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 1900px) {
+    .main .header .logo {
+        max-width: 13.15789473684211vw;
+        margin-left: 1.684210526315789vw;
+    }
+    .main .header {
+        height: 5.263157894736842vw;
+    }
+    .main .header .texto {
+        margin-right: 1.684210526315789vw;
+    }
+    .main .header .texto h2 {
+        font-size: 1.263157894736842vw;
+    }
+    .main .header .iconSocial {
+        width: 2.105263157894737vw;
+        margin-right: 0.8421052631578947vw;
+        border-radius: 0.2631578947368421‬vw;
+    }
+    .main .content h1 {
+        font-size: 1.263157894736842vw;
+    }
+    .main .content .progreso span {
+        margin-right: 0.8421052631578947vw;
+        margin-left: 0.8421052631578947vw;
+        font-size: 1.263157894736842vw;
+    }
+    .main .content .progreso progress[value] {
+        height: 1.052631578947368vw;
+    }
+    .main .footer h2 {
+        margin-right: 0.8421052631578947vw;
+        margin-left: 0.8421052631578947vw;
+        font-size: 1.263157894736842vw;
+    }
+}
